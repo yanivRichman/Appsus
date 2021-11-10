@@ -1,7 +1,7 @@
 
 import homePage from './pages/home-page.cmp.js';
 import emailPage from './apps/mail/pages/mail-page.cmp.js';
-import keepPage from './apps/keep/pages/keep-page.cmp.js';
+import keepPage from './apps/keep/pages/note-page.cmp.js';
 
 const routes = [
     {
