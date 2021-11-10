@@ -10,17 +10,13 @@ const options = {
     router,
     template: `
       <section>
-          <!-- <book-app></book-app> -->
           <app-header />
           <user-msg />
           <router-view />
-          <!-- <book-app/> -->
-          <app-footer />
       </section>
     `,
     components: {
         appHeader,
-        appFooter,
         bookApp,
         userMsg,
     }

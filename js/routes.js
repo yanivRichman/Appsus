@@ -1,10 +1,7 @@
 
 import homePage from './pages/home-page.cmp.js';
-import aboutPage from './pages/about-page.cmp.js';
-import bookDetails from './pages/book-details.cmp.js';
-
-import bookApp from './pages/book-app.cmp.js';
-
+import emailPage from './pages/email-page.cmp.js';
+import keepPage from './pages/keep-page.cmp.js';
 
 const routes = [
     {
@@ -12,16 +9,12 @@ const routes = [
         component: homePage
     },
     {
-        path: '/about',
-        component: aboutPage
+        path: '/email',
+        component: emailPage
     },
     {
-        path: '/book',
-        component: bookApp
-    },
-    {
-        path: '/book/:bookId',
-        component: bookDetails
+        path: '/keep',
+        component: keepPage
     },
 ];
 
