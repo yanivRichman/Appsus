@@ -1,6 +1,4 @@
-
-
-export const storageService = {
+export const storageService= {
     query,
     get,
     post,

@@ -1,6 +1,6 @@
+import { storageService } from '../../../services/async-storage-service.js';
+import { utilService } from '../../../services/util-service.js';
 
-import { storageService } from '/js/services/async-storage-service.js';
-import { utilService } from '/js/services/util-service.js';
 
 export const noteService = {
     query,
@@ -17,12 +17,12 @@ function query() {
 
 }
 
-function createNote(){
+function createNote() {
 }
 
-function updateNote(){}
+function updateNote() { }
 
-function deleteNote(){
+function deleteNote() {
 
 }
 
