@@ -7,7 +7,7 @@ export default {
     template: `
     <section class="mail-page">
        <h3>Mail</h3>
-       <mail-list :mails="mailsToShow"/>
+       <mail-list class="mail-list" :mails="mailsToShow"/>
     </section>
     `,
        data() {
