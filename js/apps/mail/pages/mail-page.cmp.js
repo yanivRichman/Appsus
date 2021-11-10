@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail-service.js';
-import { eventBus } from '../../../services/event-bus-service.js';
+// import { eventBus } from '../../../services/event-bus-service.js';
 import mailList from '../cmps/mail-list.cmp.js';
 
 
@@ -38,7 +38,6 @@ export default {
     },
     components: {
         mailList,
-        eventBus,
-        // carFilter,
+        // eventBus,
     }
 }
