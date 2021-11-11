@@ -1,11 +1,10 @@
 
-
 export default {
     props: ['info'],
     template: ` 
         <section>
-            <img :src="info.url"/>
-            <p>{{info.title}}</p>
+             <iframe :src="info.url" title="video"></iframe>   
+             <p>{{ info.title }}</p>
         </section>
         `,
 }

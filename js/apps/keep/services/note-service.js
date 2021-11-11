@@ -5,6 +5,7 @@ import { utilService } from '../../../services/util-service.js';
 export const noteService = {
     query,
     getNoteById,
+    removeNote,
 }
 
 
@@ -22,8 +23,21 @@ function createNote() {
 
 function updateNote() { }
 
-function deleteNote() {
+function getEmpthyNote(){
+    return {
+        id: '',
+        isPinned: false,
+        type: '',
+        info:{},
+        style:{
+            backgroundColor: '#fff'
+        }
 
+    }
+}
+
+function removeNote(noteId) {
+    return storageService.remove(NOTES_KEY, noteId);
 }
 
 function getNoteById(id) {
@@ -63,7 +77,18 @@ function _createNotes() {
                         { txt: "Coding power", doneAt: 187111111 }
                     ]
                 }
-            }
+            },
+            {
+                id: "n104",
+                type: "note-video",
+                info: {
+                    url: "https://www.youtube.com/embed/CG__N4SS1Fc",
+                    title: "CSS"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                }
+            },
         ];
         utilService.saveToStorage(NOTES_KEY, notes);
     }
