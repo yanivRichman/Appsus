@@ -9,8 +9,6 @@ export default {
                     <mail-preview :mail="mail" @click.native="log" />
                     <button @click="remove(mail.id)" >❌</button>
                     <button @click="read(mail.id)" >📧</button>
-                    <!-- <router-link :to="'/mail/'+mail.id" >Details</router-link>
-                    <router-link :to="'/mail/'+mail.id + '/edit'" >Edit</router-link> -->
             </li>
         </ul>
     </section>

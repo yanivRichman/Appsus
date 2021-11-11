@@ -15,18 +15,17 @@
     text-align: start;
 }
 
-.mail-subject-body {
+.subject-body{
+        width: 1000px;
+}
+
+.mail-body {
     color: gray;
-    width: 1000px;
 }
 
 .mail-name {
-    width: 150px;
+    width: 130px;
     padding: 10px;
-}
-
-.subj {
-    color: black;
 }
 
 .mail-sentAt {
@@ -54,4 +53,34 @@
     cursor: pointer;
     transition: all 0.4s;
     width: 100px;
+    margin-left: 0;
+}
+
+.compose-btn {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    background: white;
+    padding: 10px  20px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: 0;
+    color: #5f6368;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.4s;
+    height: 30px;
+    text-decoration: none;
+}
+
+button {
+    background-color: white;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.email-menu {
+    cursor: not-allowed;
+    padding: 10px  30px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    margin-top: 10px;
 }

@@ -8,7 +8,14 @@ import mailFilter from '../cmps/mail-filter.cmp.js';
 export default {
     template: `
     <section class="mail-page flex">
-       <router-link to="/mail/new">Compose</router-link>
+        <div class="email-menu-container flex-column">
+            <router-link to="/mail/new" class="compose-btn">➕Compose</router-link>
+            <button class="email-menu">Inbox</button>
+            <button class="email-menu">starred</button>
+            <button class="email-menu">Sent Mail</button>
+            <button class="email-menu">Drafts</button>
+
+        </div>
        <mail-list class="mail-list" :mails="mailsToShow" @remove="removeMail"/>
     </section>
     `,

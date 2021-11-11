@@ -7,7 +7,7 @@ export default {
                 <p class="New-Message">New Message</p>
                 <input class="new-mail" v-model="newMail.to" type="text" placeholder="To:">
                 <input class="new-mail" v-model="newMail.subject" type="text" placeholder="Subject:">
-                <input class="new-mail-body" v-model="newMail.body" type="text" placeholder="">
+                <textarea ows="4" cols="50" class="new-mail-body" v-model="newMail.body"></textarea>
                 <button class="send-btn">Send</button>
             </form>
         </section>
