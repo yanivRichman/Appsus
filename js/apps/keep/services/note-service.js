@@ -103,6 +103,7 @@ function _createNotes() {
                 id: "n101",
                 type: "note-txt",
                 isPinned: true,
+                isEdit: false,
                 info: {
                     txt: "Fullstack Me Baby!"
                 },
@@ -113,6 +114,8 @@ function _createNotes() {
             {
                 id: "n102",
                 type: "note-img",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     url: "img/cute.jpg",
                     title: "Bobi and Me"
@@ -124,6 +127,8 @@ function _createNotes() {
             {
                 id: "n103",
                 type: "note-todos",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     label: "Get my stuff together",
                     title: "Get my stuff together",
@@ -139,6 +144,8 @@ function _createNotes() {
             {
                 id: "n104",
                 type: "note-video",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     url: "https://www.youtube.com/embed/CG__N4SS1Fc",
                     title: "CSS"

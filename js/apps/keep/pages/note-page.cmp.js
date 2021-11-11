@@ -57,7 +57,6 @@ export default {
         },
 
         updateNoteBgc(color, noteId) {
-            console.log('color', color);
             noteService.updateNoteBgc(color, noteId)
                 .then(() => {
                     this.loadNotes();

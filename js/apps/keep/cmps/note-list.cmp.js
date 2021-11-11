@@ -1,10 +1,13 @@
 import notePreview from '../cmps/note-preview.cmp.js'
+import editNote from '../cmps/edit-note.cmp.js'
+
 
 
 export default {
     props: ['notes'],
     components: {
         notePreview,
+        editNote,
     },
 
     template: `
@@ -17,12 +20,15 @@ export default {
                 <button @click="remove(note.id)">X</button>
                 <!-- <button @click="openColors">🎨</button> -->
                 <div class="colorsPalete" v-for="color in colors">
-                <button @click="updateBgc(color,note.id)"></button>
+                <button @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></button>
                 </div>
-                <!-- <div class="colors"> -->
-                <!-- <button @click="pinNote">📍</button>
-                <button @click="duplicateNote">duplicate</button> -->
+                <!-- <button @click="pinNote">📍</button> -->
+                <!-- <button @click="isEdit=true">edit</button>
+                <input v-if="isEdit" type="text" :placeholder="note.info.title"> -->
+
+                <!-- <button @click="duplicateNote">duplicate</button>  -->
             </div>
+            <!-- <edit-note :note="note"/> -->
         </div>
 
                      
@@ -32,7 +38,9 @@ export default {
     `,
     data() {
         return {
-            colors:['#ffadad','#ffd6a5','#fdffb6','#caffbf','#9bf6ff','#a0c4ff','#bdb2ff','#ffc6ff','#fff'],
+            colors: ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff',
+                '#a0c4ff', '#bdb2ff', '#ffc6ff', '#fff'],
+            isEdit: false,
         }
     },
 
@@ -41,13 +49,13 @@ export default {
             this.$emit('remove', noteId)
         },
 
-        updateBgc(color,id){
-            this.$emit('updateBgc',color,id)
+        updateBgc(color, id) {
+            this.$emit('updateBgc', color, id)
         },
 
         openColors() {
         }
     },
-  
- 
+
+
 }
