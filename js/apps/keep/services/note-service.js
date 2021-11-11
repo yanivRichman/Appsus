@@ -7,6 +7,8 @@ export const noteService = {
     getNoteById,
     removeNote,
     saveNote,
+    updateNoteBgc,
+    save,
 }
 
 
@@ -19,17 +21,30 @@ function query() {
 
 }
 
-function getEmpthyNote() {
-    return {
-        id: '',
-        isPinned: false,
-        type: '',
-        info: {},
-        style: {
-            backgroundColor: '#fff'
-        }
+// function getEmpthyNote() {
+//     return {
+//         id: '',
+//         isPinned: false,
+//         type: '',
+//         info: {},
+//         style: {
+//             backgroundColor: '#fff'
+//         }
 
-    }
+//     }
+// }
+
+function updateNoteBgc(color, noteId) {
+    return getNoteById(noteId)
+        .then(note => {
+            note.style.bgc = color
+            return save(note)
+        })
+}
+
+function save(note) {
+    if (note.id) return storageService.put(NOTES_KEY, note);
+    else return storageService.post(NOTES_KEY, note);
 }
 
 function saveNote(noteVal, cmpType) {
@@ -38,7 +53,7 @@ function saveNote(noteVal, cmpType) {
         type: cmpType,
         info: getNoteInfo(noteVal, cmpType),
         style: {
-            backgroundColor: '#fff'
+            bgc: '#fff'
         }
     }
 
@@ -60,7 +75,6 @@ function getTitleAndUrl(noteVal) {
     let words = noteVal.split(',', 1);
     let noteTitle = words[0]
     let noteUrl = noteVal.slice(noteTitle.length)
-    // console.log('url', { title: noteTitle, url: noteUrl });
     return { title: noteTitle, url: noteUrl }
 }
 
@@ -68,8 +82,6 @@ function getTodos(todosVal) {
     let todos = todosVal.split(',')
     let noteTitle = todos.shift();
     let formatedTodos = todos.map((todo, idx) => {
-        // console.log('todo', { title: noteTitle, todos: formatedTodos });
-        // if (idx === 0) return
         return { txt: todo, doneAt: null }
     })
     return { title: noteTitle, todos: formatedTodos };
@@ -91,24 +103,32 @@ function _createNotes() {
                 id: "n101",
                 type: "note-txt",
                 isPinned: true,
+                isEdit: false,
                 info: {
                     txt: "Fullstack Me Baby!"
+                },
+                style: {
+                    bgc: "#b7e4c7"
                 }
             },
             {
                 id: "n102",
                 type: "note-img",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     url: "img/cute.jpg",
                     title: "Bobi and Me"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    bgc: "#ffadad"
                 }
             },
             {
                 id: "n103",
                 type: "note-todos",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     label: "Get my stuff together",
                     title: "Get my stuff together",
@@ -116,17 +136,22 @@ function _createNotes() {
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
                     ]
+                },
+                style: {
+                    bgc: "#cddafd"
                 }
             },
             {
                 id: "n104",
                 type: "note-video",
+                isPinned: false,
+                isEdit: false,
                 info: {
                     url: "https://www.youtube.com/embed/CG__N4SS1Fc",
                     title: "CSS"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    bgc: "#ffd6a5"
                 }
             },
         ];

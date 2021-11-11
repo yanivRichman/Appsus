@@ -16,7 +16,7 @@ export default {
          <add-note :noteEdit="noteEdit" @updateType="updateType" @submit="updatePage"/>
          <h3>{{noteEdit.cmpType}}</h3>
 
-         <note-list v-model="notes" :notes="notes" @remove="removeNote" />
+         <note-list v-model="notes" :notes="notes" @remove="removeNote" @updateBgc="updateNoteBgc" />
          
     </section>
     `,
@@ -51,9 +51,16 @@ export default {
                     console.log('err', err);
                 });
         },
+
         updatePage() {
-            console.log('hi update');
             this.loadNotes();
+        },
+
+        updateNoteBgc(color, noteId) {
+            noteService.updateNoteBgc(color, noteId)
+                .then(() => {
+                    this.loadNotes();
+                })
         },
 
         updateType(noteType) {
