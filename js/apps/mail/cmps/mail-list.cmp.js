@@ -4,15 +4,13 @@ export default {
     props: ['mails','heading'],
     template: `
     <section class="mail-list">
-        <h2>{{heading || 'mail List'}}</h2>
         <ul>
-            <li v-for="mail in mails" :key="mail.id" class="mail-preview-container" >
-                <mail-preview :mail="mail" @click.native="log" />
-                <div class="actions">
-                    <button @click="remove(mail.id)" >X</button>
-                    <router-link :to="'/mail/'+mail.id" >Details</router-link>
-                    <router-link :to="'/mail/'+mail.id + '/edit'" >Edit</router-link>
-                </div>
+            <li v-for="mail in mails" :key="mail.id" class="mail-preview-container flex space-between align-center" >
+                    <mail-preview :mail="mail" @click.native="log" />
+                    <button @click="remove(mail.id)" >❌</button>
+                    <button @click="read(mail.id)" >📧</button>
+                    <!-- <router-link :to="'/mail/'+mail.id" >Details</router-link>
+                    <router-link :to="'/mail/'+mail.id + '/edit'" >Edit</router-link> -->
             </li>
         </ul>
     </section>
@@ -25,6 +23,10 @@ export default {
         },
         log() {
             console.log('Logging.....');
+        },
+        read(mailId){
+            console.log('read' , mailId);
+            // this.$emit('read', mailId);
         }
     },
     components:{

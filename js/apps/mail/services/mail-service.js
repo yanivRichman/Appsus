@@ -10,35 +10,35 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: getDate(1621133930594),
         to: 'yaronB@ca.com',
     },
     {
         id: 'e102',
         name: 'Matan Crispel',
         subject: 'Dropbox!!!',
-        body: 'Hi, don\'t forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
+        body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: 1551134930594,
+        sentAt: getDate(1581133930594),
         to: 'matanB@ca.com',
     },
     {
         id: 'e103',
         name: 'Adina Zwebner',
         subject: 'Sprint3 update',
-        body: 'Hi Revital and Yaniv, Please don\'t forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.',
+        body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: 1551135930594,
+        sentAt: getDate(1561133930594),
         to: 'adinaZ@ca.com',
     },
     {
         id: 'e104',
-        name: 'Google the original',
-        subject: 'Job offer',
-        body: 'Hi Revital and Yaniv, we are very empressed from your work at sprint 3 and Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.',
+        name: 'Ori Shemla',
+        subject: 'Data is a function that ',
+        body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: 1551136930594,
-        to: 'googleOrig@gmail.com',
+        sentAt: getDate(1551133930594),
+        to: 'oriSH@ca.com',
     },
 ];
 
@@ -50,7 +50,7 @@ export const mailService = {
     query,
     remove,
     save,
-    getEmptyCar,
+    getEmptyMail,
     getById,
 };
 
@@ -67,11 +67,14 @@ function save(mail) {
     else return storageService.post(MAILS_KEY, mail);
 }
 
-function getEmptyCar() {
+function getEmptyMail() {
     return {
         id: '',
         subject: '',
         body: '',
+        isRead: false,
+        name: 'Yaniv Richman',
+        sentAt: getCurentDate(),
     };
 }
 
@@ -96,3 +99,39 @@ function _createmails() {
 //     };
 //     return mail;
 // }
+
+function getDate(time) {
+    const day = new Date(time).getDate();
+    const month = parseInt(new Date(time).getMonth()) + 1;
+    const year = new Date(time).getFullYear();
+    if (year < 2021) {
+        var fullDate = day + '/' + month + '/' + year;
+    } else {
+        const monthNames = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+        ];
+        const monthStr = monthNames[month];
+        var fullDate = monthStr + ',' + day;
+    }
+    return fullDate;
+}
+
+function getCurentDate() {
+    const currTime = new Date().toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      })
+      return currTime;
+}

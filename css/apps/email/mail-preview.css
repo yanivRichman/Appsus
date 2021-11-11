@@ -1,0 +1,57 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.New-Message {
+    background-color: black;
+    color: white;
+}
+
+.mail-preview {
+    border-bottom: 1px dotted gray;
+    background-color: rgba(255, 255, 255, 0.719);
+    font-weight: bold;
+    text-align: start;
+}
+
+.mail-subject-body {
+    color: gray;
+    width: 1000px;
+}
+
+.mail-name {
+    width: 150px;
+    padding: 10px;
+}
+
+.subj {
+    color: black;
+}
+
+.mail-sentAt {
+    width: 90px;
+    padding: 10px;
+}
+
+.new-mail{
+    padding: 5px;
+}
+
+.new-mail-body{
+    height: 300px;
+}
+
+.send-btn {
+    color: white;
+    background: #1a73e8;
+    text-align: center;
+    padding: 12px 17px;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    width: 100px;
+}
