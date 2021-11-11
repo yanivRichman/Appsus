@@ -1,15 +1,19 @@
 /* import all files */
-@import url(/css/parts/helpers.css);
-@import url(/css/parts/fonts.css);
-@import url(/css/parts/base.css);
-@import url(/css/parts/helpers.css);
-@import url(/css/cmps/app-home.css);
-@import url(/css/cmps/user-msg.css);
-@import url(/css/apps/email/mail-preview.css);
-@import url(/css/apps/keep/note-preview.css);
+@import url(parts/helpers.css);
+@import url(parts/fonts.css);
+@import url(parts/base.css);
+@import url(parts/helpers.css);
+@import url(cmps/app-home.css);
+@import url(cmps/user-msg.css);
+@import url(cmps/add-note.css);
+@import url(apps/email/mail-preview.css);
+@import url(apps/keep/note-preview.css);
+@import url(apps/keep/note-list.css);
 
 
 
+
+css\cmps\user-msg.css
 
 
 
@@ -25,6 +29,11 @@ body {
     text-align: center;
     background-color: cornsilk;
 }
+
+ul {
+    list-style: none;
+  }
+
 
 /* .mail-list {
     color: ;

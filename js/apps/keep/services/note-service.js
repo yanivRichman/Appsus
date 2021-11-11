@@ -5,6 +5,8 @@ import { utilService } from '../../../services/util-service.js';
 export const noteService = {
     query,
     getNoteById,
+    removeNote,
+    saveNote,
 }
 
 
@@ -17,13 +19,64 @@ function query() {
 
 }
 
-function createNote() {
+function getEmpthyNote() {
+    return {
+        id: '',
+        isPinned: false,
+        type: '',
+        info: {},
+        style: {
+            backgroundColor: '#fff'
+        }
+
+    }
 }
 
-function updateNote() { }
+function saveNote(noteVal, cmpType) {
+    let newNote = {
+        isPinned: false,
+        type: cmpType,
+        info: getNoteInfo(noteVal, cmpType),
+        style: {
+            backgroundColor: '#fff'
+        }
+    }
 
-function deleteNote() {
+    return storageService.post(NOTES_KEY, newNote);
+}
 
+function getNoteInfo(noteVal, cmpType) {
+    if (cmpType === 'note-txt') return { txt: noteVal };
+    else if (cmpType === 'note-img' || cmpType === 'note-video') return getTitleAndUrl(noteVal);
+    else if (cmpType === 'note-todos') return getTodos(noteVal);
+    // {
+    //     var todos = getTodos(noteVal)
+    //     return { todos }
+    //     console.log('todos', todos);
+    // }
+}
+
+function getTitleAndUrl(noteVal) {
+    let words = noteVal.split(',', 1);
+    let noteTitle = words[0]
+    let noteUrl = noteVal.slice(noteTitle.length)
+    // console.log('url', { title: noteTitle, url: noteUrl });
+    return { title: noteTitle, url: noteUrl }
+}
+
+function getTodos(todosVal) {
+    let todos = todosVal.split(',')
+    let noteTitle = todos.shift();
+    let formatedTodos = todos.map((todo, idx) => {
+        // console.log('todo', { title: noteTitle, todos: formatedTodos });
+        // if (idx === 0) return
+        return { txt: todo, doneAt: null }
+    })
+    return { title: noteTitle, todos: formatedTodos };
+}
+
+function removeNote(noteId) {
+    return storageService.remove(NOTES_KEY, noteId);
 }
 
 function getNoteById(id) {
@@ -58,12 +111,24 @@ function _createNotes() {
                 type: "note-todos",
                 info: {
                     label: "Get my stuff together",
+                    title: "Get my stuff together",
                     todos: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
                     ]
                 }
-            }
+            },
+            {
+                id: "n104",
+                type: "note-video",
+                info: {
+                    url: "https://www.youtube.com/embed/CG__N4SS1Fc",
+                    title: "CSS"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                }
+            },
         ];
         utilService.saveToStorage(NOTES_KEY, notes);
     }

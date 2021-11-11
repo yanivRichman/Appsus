@@ -1,6 +1,7 @@
 import noteTxt from './note-txt.cmp.js'
 import noteTodos from './note-todos.cmp.js'
 import noteImg from './note-img.cmp.js'
+import noteVideo from './note-video.cmp.js'
 
 
 export default {
@@ -9,9 +10,10 @@ export default {
         noteTxt,
         noteTodos,
         noteImg,
+        noteVideo,
     },
     template: `
-    <div class="note-preview">
+    <div class="note-preview flex space-around column">
         <components :is="note.type" :info="note.info"/>
     </div>
     `,
