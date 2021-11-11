@@ -3,9 +3,9 @@
 export default {
     props: ['info'],
     template: ` 
-        <section>
-            <h3>{{ info.label }}</h3>
-            <ul class="flex space-between">
+        <section class="note">
+            <h3>{{ info.title }}</h3>
+            <ul class="todos">
                 <li v-for="todo in info.todos">{{ todo.txt }}</li>
             </ul>
         </section>

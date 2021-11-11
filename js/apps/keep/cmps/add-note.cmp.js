@@ -1,17 +1,19 @@
+import { noteService } from '../services/note-service.js'
+
 
 export default {
-    props:['noteEdit'],
+    props: ['noteEdit'],
     template: `
-    <section>
+    <section class="add-note">
         <div>
             <form @submit.prevent="saveNote">
-            <input :type="noteEdit.type" autocomplete="off" :placeholder="noteEdit.placeholder">
+            <input v-model="noteToEdit" :type="noteEdit.type" autocomplete="off" :placeholder="noteEdit.placeholder">
             </form>
             <div>   
-                <button @click="upfateNoteAdd('txt')">txt</button>
-                <button @click="upfateNoteAdd('img')">vid</button>
-                <button @click="upfateNoteAdd('vid')">img</button>
-                <button @click="upfateNoteAdd('todo')">todo</button>
+                <button @click="updateNoteAdd('txt')">txt</button>
+                <button @click="updateNoteAdd('img')">vid</button>
+                <button @click="updateNoteAdd('vid')">img</button>
+                <button @click="updateNoteAdd('todo')">todo</button>
             </div>
 
         </div>
@@ -20,17 +22,23 @@ export default {
 
     data() {
         return {
-            // type: 'text',
-            // placeholder: `What's on your mind...`
-        }
+            noteToEdit: null,
+
+        };
     },
     methods: {
-        upfateNoteAdd(noteType) {
+        updateNoteAdd(noteType) {
             this.$emit('updateType', noteType)
         },
 
-        saveNote(){
-            console.log('saving..');
+        saveNote() {
+            noteService.saveNote(this.noteToEdit, this.noteEdit.cmpType)
+                .then(() => {
+                    this.$emit('submit')
+                    this.noteToEdit = ''
+                })
+
+            // .then(note => this.$router.push('/keep'))
         }
     }
 

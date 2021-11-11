@@ -2,7 +2,7 @@
 export default {
     props: ['info'],
     template: ` 
-        <section>
+        <section class="note">
              <iframe :src="info.url" title="video"></iframe>   
              <p>{{ info.title }}</p>
         </section>

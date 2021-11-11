@@ -8,14 +8,24 @@ export default {
     },
 
     template: `
-    <section class="note-list">
-    <div class="note-list"> 
+    <section class="note-list flex space-between">
+    <!-- <div class="note-list">  -->
         <div v-for="note in notes" :key="note.id" class="notes-preview-container">
             <note-preview :note="note"/>  
-            <div> <button @click="remove(note.id)">X</button></div>
+            <div class="note-footer"> 
+                <button @click="remove(note.id)">X</button>
+                <!-- <button @click="openColors">🎨</button> -->
+                <!-- <div class="colors"> -->
+                <!-- <button @click="pinNote">📍</button>
+                <button @click="duplicateNote">duplicate</button> -->
+
+
+
+                
+            </div>
                      
         </div>
-    </div>
+    <!-- </div> -->
     </section>
     `,
 
@@ -23,5 +33,8 @@ export default {
         remove(noteId) {
             this.$emit('remove', noteId)
         }
+    },
+    openColors(){
+
     }
 }

@@ -11,12 +11,12 @@ export default {
     },
 
     template: `
-    <section v-if="notes" class="home-page">
+    <section v-if="notes" class="home-page" >
          <h3>Keep</h3>
-         <add-note :noteEdit="noteEdit" @updateType="updateType"/>
+         <add-note :noteEdit="noteEdit" @updateType="updateType" @submit="updatePage"/>
          <h3>{{noteEdit.cmpType}}</h3>
 
-         <note-list :notes="notes" @remove="removeNote"/>
+         <note-list v-model="notes" :notes="notes" @remove="removeNote" />
          
     </section>
     `,
@@ -27,7 +27,7 @@ export default {
             noteEdit: {
                 type: 'text',
                 placeholder: `What's on your mind...`,
-                cmpType: 'note-txt'
+                cmpType: 'note-txt',
             }
         }
     },
@@ -51,30 +51,39 @@ export default {
                     console.log('err', err);
                 });
         },
+        updatePage() {
+            console.log('hi update');
+            this.loadNotes();
+        },
 
         updateType(noteType) {
             switch (noteType) {
                 case 'img':
-                    this.noteEdit.type = 'URL';
-                    this.noteEdit.placeholder = 'Enter image url...';
+                    this.noteEdit.type = 'text';
+
+                    // this.noteEdit.type = 'URL';
+                    this.noteEdit.placeholder = 'Enter Title,Enter image url...';
                     this.noteEdit.cmpType = 'note-video';
 
                     break;
                 case 'vid':
-                    this.noteEdit.type = 'URL';
-                    this.noteEdit.placeholder = 'Enter video url...';
+                    this.noteEdit.type = 'text';
+
+                    // this.noteEdit.type = 'URL';
+                    this.noteEdit.placeholder = 'Enter Title,Enter video url...';
                     this.noteEdit.cmpType = 'note-img';
 
                     break;
                 case 'todo':
                     this.noteEdit.type = 'text';
-                    this.noteEdit.placeholder = 'Enter comma seperated lost...';
+                    this.noteEdit.placeholder = 'Enter Title,Enter comma seperated list...';
                     this.noteEdit.cmpType = 'note-todos';
                     break;
-                default :
+                case 'txt':
                     this.noteEdit.type = 'text';
-                    this.noteEdit.placeholder = 'Enter video url...';
+                    this.noteEdit.placeholder = 'Enter Title,Enter Text...';
                     this.noteEdit.cmpType = 'note-txt';
+                    break;
             }
         }
     }

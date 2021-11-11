@@ -2,7 +2,7 @@
 export default {
     props: ['info'],
     template: ` 
-        <section>
+        <section class="note">
             <p>{{info.txt}}</p>
         </section>
         `,

@@ -1,0 +1,5 @@
+
+.add-note input[type=text], input[type=url]{
+    width: 500px;
+    height: 50px;
+}

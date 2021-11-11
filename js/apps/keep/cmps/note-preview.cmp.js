@@ -13,7 +13,7 @@ export default {
         noteVideo,
     },
     template: `
-    <div class="note-preview">
+    <div class="note-preview flex space-around column">
         <components :is="note.type" :info="note.info"/>
     </div>
     `,
