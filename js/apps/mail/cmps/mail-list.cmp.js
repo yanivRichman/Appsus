@@ -1,4 +1,6 @@
 import mailPreview from './mail-preview.cmp.js';
+import { mailService } from '../services/mail-service.js';
+
 
 export default {
     props: ['mails','heading'],
@@ -7,8 +9,8 @@ export default {
         <ul>
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container flex space-between align-center" >
                     <mail-preview :mail="mail" @click.native="log" />
-                    <button @click="remove(mail.id)" >❌</button>
-                    <button @click="read(mail.id)" >📧</button>
+                    <div class="icon trash right-icons" @click="remove(mail.id)" ></div>
+                    <div class="icon envelop-close right-icons" @click="read(mail)"></div>
             </li>
         </ul>
     </section>
@@ -16,16 +18,12 @@ export default {
     created(){
     },
     methods: {
+        read(mail) {
+            mailService.read(mail)
+        },
         remove(mailId) {
             this.$emit('remove', mailId);
         },
-        log() {
-            console.log('Logging.....');
-        },
-        read(mailId){
-            console.log('read' , mailId);
-            // this.$emit('read', mailId);
-        }
     },
     components:{
         mailPreview

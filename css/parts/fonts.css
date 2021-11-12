@@ -74,3 +74,40 @@
   content: '\f111'
 } */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.envelop-open::before {
+    font-family: fa;
+      content: '\f2b6'
+}
+
+.envelop-close::before {
+  font-family: fa;
+    content: '\f0e0'
+}
+
+.search-icon::before {
+  font-family: fa;
+    content: '\f002'
+}

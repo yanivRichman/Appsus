@@ -1,31 +1,29 @@
 export default {
     template: `
-        <div class="mail-filter flex">
+        <div class="mail-filter">
+            <button class="search-icon"></button>
             <label>
-                <input @input="filter" v-model="filterBy.str" type="text" placeholder="Search...">
+                <input @input="filter" v-model="filterBy.str" class="filters-btn search-icon" type="text" placeholder="Search mail">
             </label>
-            <!-- <label>
-                <div class="dropdown">
-                    <button class="dropbtn">All 🔽</button>
-                    <div @change="filter" v-model="filterBy.select" class="dropdown-content">
-                      <a value="all" href="#">All</a>
-                      <a value="true" href="#">Read</a>
-                      <a value="false" href="#">Unread</a>
-                    </div>
-                </div>
-            </label> -->
+            <select @change="onSelect" v-model="filterBy.select" class="filters-btn">
+                       <option value="all">All</option>
+                       <option value="true">Read</option>
+                       <option value="false">Unread</option>
+             </select>
         </div>
     `,
     data() {
         return {
             filterBy: {
                 str: '',
-                select: '',
-
+                select: 'all',
             }
         };
     },
     methods: {
+        onSelect(){
+            this.$emit('filtered', {...this.filterBy})
+        },
         filter() {
             this.$emit('filtered', { ...this.filterBy });
             //deep copy

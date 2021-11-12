@@ -88,6 +88,7 @@ export const mailService = {
     save,
     getEmptyMail,
     getById,
+    read,
 };
 
 function query() {
@@ -103,6 +104,11 @@ function save(mail) {
     else return storageService.post(MAILS_KEY, mail);
 }
 
+function read(mail){
+    mail.isRead =!mail.isRead
+    return storageService.put(MAILS_KEY, mail);
+}
+
 function getEmptyMail() {
     return {
         id: '',
@@ -115,6 +121,7 @@ function getEmptyMail() {
 }
 
 function getById(mailId) {
+    console.log('here getById')
     return storageService.get(MAILS_KEY, mailId);
 }
 
@@ -171,3 +178,5 @@ function getCurentDate() {
     });
     return currTime;
 }
+
+

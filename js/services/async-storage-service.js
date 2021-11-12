@@ -37,6 +37,7 @@ function postMany(entityType, newEntities) {
 }
 
 function put(entityType, updatedEntity) {
+    console.log('put')
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === updatedEntity.id);
@@ -47,6 +48,7 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
+    console.log('remove async-service', entityType , entityId)
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === entityId);
