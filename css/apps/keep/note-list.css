@@ -1,4 +1,13 @@
 
+.icon {
+    cursor: pointer;
+}
 
-/* .note-list img {
-} */
+/* BTNS */
+
+.btnColor {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid rgb(197, 192, 192);
+}

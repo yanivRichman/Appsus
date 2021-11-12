@@ -1,6 +1,76 @@
 
 @font-face {
     font-family: "fa";
-    src: url(/fonts/fa/fa-regular-400.ttf);
-  }
-  /* f2ed */
+    src: url(/fonts/fa/fa-solid-900.ttf);
+}
+
+@font-face {
+  font-family: "fa";
+  src: url(/fonts/fa/fa-regular-400.ttf);
+}
+
+@font-face {
+  font-family: "fa";
+  src: url(/fonts/fa/fa-brands-400.ttf);
+}
+ 
+.icon {
+    font-family: fa;
+}
+
+
+.trash::before {
+    font-family: fa;
+      content: '\f2ed'
+}
+
+.palette::before {
+  font-family: fa;
+  content: '\f53f'
+}
+
+.pin::before {
+  font-family: fa;
+  content: '\f08d'
+}
+
+.vid::before {
+  font-family: fa;
+  content: '\f167'
+}
+
+.img::before {
+  font-family: fa;
+  content: '\f03e'
+}
+
+.todo::before {
+  font-family: fa;
+  content: '\f022'
+}
+
+.txt::before {
+  font-family: fa;
+  content: '\f031'
+}
+
+.txt::before {
+  font-family: fa;
+  content: '\f031'
+}
+
+.edit::before {
+  font-family: fa;
+  content: '\f044'
+}
+
+.duplicate::before {
+  font-family: fa;
+  content: '\f24d'
+}
+
+/* .btnColor::before {
+  font-family: fa;
+  content: '\f111'
+} */
+

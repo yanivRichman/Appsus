@@ -8,7 +8,10 @@ export const noteService = {
     removeNote,
     saveNote,
     updateNoteBgc,
+    updateTitle,
     save,
+    duplicateNote,
+    pinedQuery,
 }
 
 
@@ -21,6 +24,16 @@ function query() {
 
 }
 
+function pinedQuery() {
+    return storageService.query(NOTES_KEY)
+    .then(notes =>{
+       var pinnedNotes = notes.filter(note =>{
+            return note.isPinned
+        })
+        return pinnedNotes
+    })
+
+}
 // function getEmpthyNote() {
 //     return {
 //         id: '',
@@ -34,12 +47,25 @@ function query() {
 //     }
 // }
 
+function duplicateNote(newNote) {
+    return save(newNote);
+}
+
+function updateTitle(noteId,title) {
+    return getNoteById(noteId)
+    .then(note => {
+        if (note.type !== 'note-txt') note.info.title = title;
+        else note.info.txt = title;
+        return save(note)
+    })   
+}
+
 function updateNoteBgc(color, noteId) {
     return getNoteById(noteId)
-        .then(note => {
-            note.style.bgc = color
-            return save(note)
-        })
+    .then(note => {
+        note.style.bgc = color
+        return save(note)
+    })
 }
 
 function save(note) {
@@ -147,8 +173,8 @@ function _createNotes() {
                 isPinned: false,
                 isEdit: false,
                 info: {
+                    title: "CSS",
                     url: "https://www.youtube.com/embed/CG__N4SS1Fc",
-                    title: "CSS"
                 },
                 style: {
                     bgc: "#ffd6a5"
