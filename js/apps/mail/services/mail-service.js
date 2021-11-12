@@ -8,8 +8,8 @@ const gMails = [
         id: 'e101',
         name: 'Yaron Biton',
         subject: 'Sprint3 review',
-        body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
-        isRead: false,
+        body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',        isRead: false,
+        isRead: true,
         sentAt: getDate(1621234930594),
         to: 'yaronB@ca.com',
     },
@@ -168,6 +168,6 @@ function getCurentDate() {
         hour: 'numeric',
         minute: 'numeric',
         hour12: true,
-      })
-      return currTime;
+    });
+    return currTime;
 }

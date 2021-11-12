@@ -6,7 +6,6 @@ export default {
       </p>
     `,
     created() {
-        console.log('body.length', this.body.length);
         if (this.body.length < 100) this.isExpand = true
     },
     data() {
