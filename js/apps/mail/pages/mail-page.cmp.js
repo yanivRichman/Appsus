@@ -5,16 +5,18 @@ import mailFilter from '../cmps/mail-filter.cmp.js';
 
 export default {
     template: `
-    <section class="mail-page flex">
-        <mail-filter class="search-button" @filtered="setFilter" />
+    <section class="mail-page">
+        <mail-filter @filtered="setFilter" />
+        <div class="flex">
         <div class="email-menu-container flex-column">
-            <router-link to="/mail/new" class="compose-btn">➕Compose</router-link>
-            <button class="email-menu">Inbox</button>
-            <button class="email-menu">starred</button>
-            <button class="email-menu">Sent Mail</button>
-            <button class="email-menu">Drafts</button>
+            <router-link to="/mail/new" class="compose-btn compose-icon"> Compose</router-link>
+            <button class="email-menu inbox-icon"> Inbox</button>
+            <button class="email-menu star-icon"> starred</button>
+            <button class="email-menu sent-mail"> Sent Mail</button>
+            <button class="email-menu drafts-icon"> Drafts</button>
         </div>
        <mail-list class="mail-list" :mails="mailsToShow" @remove="removeMail"/>
+</div>
     </section>
     `,
     data() {
@@ -58,12 +60,22 @@ export default {
         mailsToShow() {
             if (!this.filterBy) return this.mails;
             const searchtStr = this.filterBy.str.toLowerCase();
+            const isRead = this.filterBy.select;
+            console.log('isRead:', isRead)
             const mailsToShow = this.mails.filter((mail) => {
-                return (
-                    mail.subject.toLowerCase().includes(searchtStr) ||
-                    mail.body.toLowerCase().includes(searchtStr) ||
-                    mail.name.toLowerCase().includes(searchtStr)
-                )
+                const strIsRead='' + mail.isRead;
+                if (isRead === 'all') {
+                    return (
+                        mail.subject.toLowerCase().includes(searchtStr) ||
+                        mail.body.toLowerCase().includes(searchtStr) ||
+                        mail.name.toLowerCase().includes(searchtStr) )
+                } else {
+                    return (
+                        mail.subject.toLowerCase().includes(searchtStr) ||
+                        mail.body.toLowerCase().includes(searchtStr) ||
+                        mail.name.toLowerCase().includes(searchtStr) )
+                        && (isRead === strIsRead)
+                }
             });
             return mailsToShow;
         },

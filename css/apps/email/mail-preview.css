@@ -11,12 +11,29 @@
 .mail-preview {
     border-bottom: 1px dotted gray;
     background-color: rgba(255, 255, 255, 0.719);
-    font-weight: bold;
     text-align: start;
 }
 
-.subject-body{
-        width: 1000px;
+.font-bold {
+    font-weight:bold;
+}
+
+.font-normal{
+    font-weight:normal;
+}
+
+.mail-filter {
+    margin-top: 10px;
+}
+
+.filters-btn{
+    height: 25px;
+    font-size: 16px;
+}
+
+.subject-body {
+    width: 950px;
+    cursor: pointer;
 }
 
 .mail-body {
@@ -33,11 +50,11 @@
     padding: 10px;
 }
 
-.new-mail{
+.new-mail {
     padding: 5px;
 }
 
-.new-mail-body{
+.new-mail-body {
     height: 300px;
 }
 
@@ -57,9 +74,10 @@
 }
 
 .compose-btn {
-    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%),
+        0 1px 3px 1px rgb(60 64 67 / 15%);
     background: white;
-    padding: 10px  20px;
+    padding: 10px 20px;
     font-size: 1.5rem;
     border-radius: 50px;
     border: 0;
@@ -69,6 +87,7 @@
     transition: all 0.4s;
     height: 30px;
     text-decoration: none;
+    width: 120px;
 }
 
 button {
@@ -77,15 +96,18 @@ button {
     margin-left: 20px;
 }
 
+.right-icons {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
 .email-menu {
-    cursor: not-allowed;
-    padding: 10px  30px;
+    cursor: pointer;
+    padding: 10px 30px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
     margin-top: 10px;
 }
-
-
 
 /* Dropdown Button */
 .dropbtn {
@@ -94,37 +116,41 @@ button {
     padding: 10px;
     font-size: 16px;
     border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
     display: none;
     position: absolute;
     /* background-color: #f1f1f1; */
     min-width: 70px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
     color: black;
     /* padding: 12px 16px; */
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color:lightblue}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: lightblue;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
