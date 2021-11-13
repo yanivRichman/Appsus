@@ -9,8 +9,9 @@ export default {
         <ul>
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container flex align-center" >
                     <mail-preview :mail="mail"/>
-                    <div class="icon trash right-icons" @click="remove(mail.id)" ></div>
+                    <div class="icon star-icon right-icons" @click="star(mail)"></div>
                     <div class="icon envelop-close right-icons" @click="read(mail)"></div>
+                    <div class="icon trash right-icons" @click="remove(mail.id)" ></div>
             </li>
         </ul>
     </section>
@@ -29,6 +30,10 @@ export default {
         remove(mailId) {
             this.$emit('remove', mailId);
         },
+        star(mail) {
+            mailService.star(mail)
+        },
+
     },
     components:{
         mailPreview

@@ -10,10 +10,10 @@ export default {
         <div class="flex">
         <div class="email-menu-container flex-column">
             <router-link to="/mail/new" class="compose-btn compose-icon"> Compose</router-link>
-            <button class="email-menu inbox-icon"> Inbox</button>
-            <button class="email-menu star-icon"> starred</button>
-            <button class="email-menu sent-mail"> Sent Mail</button>
-            <button class="email-menu drafts-icon"> Drafts</button>
+            <button @click="setFilter({select:'isInbox',str:''})" class="email-menu inbox-icon"> Inbox</button>
+            <button @click="setFilter({select:'isStar',str:''})" class="email-menu star-icon"> starred</button>
+            <button @click="setFilter({select:'isSent',str:''})" class="email-menu sent-mail"> Sent Mail</button>
+            <button @click="setFilter({select:'isDraft',str:''})" class="email-menu drafts-icon"> Drafts</button>
         </div>
        <mail-list class="mail-list" :mails="mailsToShow" @remove="removeMail"/>
 </div>
@@ -53,29 +53,58 @@ export default {
                 });
         },
         setFilter(filterBy) {
+            console.log('filterBy:',filterBy); 
+//    filterBy: {
+//     str: '',
+//     select: 'all',
+// }
             this.filterBy = filterBy;
         },
     },
     computed: {
         mailsToShow() {
+            console.log(this.mails);
             if (!this.filterBy) return this.mails;
             const searchtStr = this.filterBy.str.toLowerCase();
             const isRead = this.filterBy.select;
             console.log('isRead:', isRead)
             const mailsToShow = this.mails.filter((mail) => {
                 const strIsRead='' + mail.isRead;
-                if (isRead === 'all') {
+                const strIsStar='' + mail.isStar;
+                const strIsSent='' + mail.isSent;
+                const strIsDraft='' + mail.isDraft;
+
+                console.log('strIsStar', strIsStar)
+                if (isRead === 'all' || isRead === 'isInbox') {
                     return (
                         mail.subject.toLowerCase().includes(searchtStr) ||
                         mail.body.toLowerCase().includes(searchtStr) ||
                         mail.name.toLowerCase().includes(searchtStr) )
-                } else {
+                } else if (isRead === 'true' || isRead === 'false')  {
                     return (
                         mail.subject.toLowerCase().includes(searchtStr) ||
                         mail.body.toLowerCase().includes(searchtStr) ||
                         mail.name.toLowerCase().includes(searchtStr) )
                         && (isRead === strIsRead)
-                }
+                } else if (isRead === 'isStar')  {
+                    return (
+                        mail.subject.toLowerCase().includes(searchtStr) ||
+                        mail.body.toLowerCase().includes(searchtStr) ||
+                        mail.name.toLowerCase().includes(searchtStr) )
+                        && (strIsStar === 'true')
+                } else if (isRead === 'isSent')  {
+                    return (
+                        mail.subject.toLowerCase().includes(searchtStr) ||
+                        mail.body.toLowerCase().includes(searchtStr) ||
+                        mail.name.toLowerCase().includes(searchtStr) )
+                        && (strIsSent === 'true')
+                } else if (isRead === 'isDraft')  {
+                    return (
+                        mail.subject.toLowerCase().includes(searchtStr) ||
+                        mail.body.toLowerCase().includes(searchtStr) ||
+                        mail.name.toLowerCase().includes(searchtStr) )
+                        && (strIsDraft === 'true')
+                } 
             });
             return mailsToShow;
         },
