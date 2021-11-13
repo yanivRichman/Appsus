@@ -48,3 +48,12 @@ a {
 .main-layout {
 
 }
+
+
+.logo {
+    text-transform: uppercase;
+    font-family: aquire;
+    font-size: 2rem;
+    color: black;
+}
+
