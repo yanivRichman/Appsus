@@ -5,8 +5,7 @@ import { mailService } from '../services/mail-service.js';
 export default {
     props: ['mail'],
     template: `
-        <div v-bind:class="classObject" class="mail-preview flex space-between align-center">
-        <p class="mail-name">{{mail.isRead}}</p>
+        <div v-bind:class="classObject" class="mail-preview flex align-center">
             <p class="mail-name">{{mail.name}}</p>
             <div @click="unReadToRead(mail)" class="flex subject-body">
                 <p class="mail-subject">{{mail.subject}}</p>

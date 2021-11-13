@@ -1,7 +1,6 @@
 export default {
     template: `
         <div class="mail-filter">
-            <button class="search-icon"></button>
             <label>
                 <input @input="filter" v-model="filterBy.str" class="filters-btn search-icon" type="text" placeholder="Search mail">
             </label>

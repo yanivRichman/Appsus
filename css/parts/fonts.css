@@ -1,17 +1,17 @@
 
 @font-face {
     font-family: "fa";
-    src: url(/fonts/fa/fa-solid-900.ttf);
+    src: url(../../fonts/fa/fa-solid-900.ttf);
 }
 
 @font-face {
   font-family: "fa";
-  src: url(/fonts/fa/fa-regular-400.ttf);
+  src: url(../../fonts/fa/fa-regular-400.ttf);
 }
 
 @font-face {
   font-family: "fa";
-  src: url(/fonts/fa/fa-brands-400.ttf);
+  src: url(../../fonts/fa/fa-brands-400.ttf);
 }
  
 .icon {
@@ -110,4 +110,29 @@
 .search-icon::before {
   font-family: fa;
     content: '\f002'
+}
+
+.star-icon::before {
+  font-family: fa;
+    content: '\f005'
+}
+
+.inbox-icon::before {
+  font-family: fa;
+  content: '\f01c'
+}
+
+.sent-mail::before {
+  font-family: fa;
+  content: '\f14d'
+}
+
+.drafts-icon::before {
+  font-family: fa;
+  content: '\f3a1'
+}
+
+.compose-icon::before {
+  font-family: fa;
+  content: '\f067'
 }

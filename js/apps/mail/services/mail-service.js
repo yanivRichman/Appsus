@@ -91,7 +91,12 @@ export const mailService = {
     getById,
     read,
     unReadToRead,
+    classObject,
 };
+
+function classObject() {
+    return 'envelop-close'
+}
 
 function query() {
     return storageService.query(MAILS_KEY);

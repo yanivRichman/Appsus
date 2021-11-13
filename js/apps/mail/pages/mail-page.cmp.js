@@ -9,11 +9,11 @@ export default {
         <mail-filter @filtered="setFilter" />
         <div class="flex">
         <div class="email-menu-container flex-column">
-            <router-link to="/mail/new" class="compose-btn">➕Compose</router-link>
-            <button class="email-menu">Inbox</button>
-            <button class="email-menu">starred</button>
-            <button class="email-menu">Sent Mail</button>
-            <button class="email-menu">Drafts</button>
+            <router-link to="/mail/new" class="compose-btn compose-icon"> Compose</router-link>
+            <button class="email-menu inbox-icon"> Inbox</button>
+            <button class="email-menu star-icon"> starred</button>
+            <button class="email-menu sent-mail"> Sent Mail</button>
+            <button class="email-menu drafts-icon"> Drafts</button>
         </div>
        <mail-list class="mail-list" :mails="mailsToShow" @remove="removeMail"/>
 </div>
