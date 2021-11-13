@@ -5,8 +5,8 @@ export default {
         <section class="new-mail app-main ">
             <form v-if="newMail" @submit.prevent="save" class="flex-column">
                 <p class="New-Message">New Message</p>
-                <input class="new-mail" v-model="newMail.to" type="text" placeholder="To:">
-                <input class="new-mail" v-model="newMail.subject" type="text" placeholder="Subject:">
+                <input v-model="newMail.to" type="text" placeholder="To:">
+                <input v-model="newMail.subject" type="text" placeholder="Subject:">
                 <textarea ows="4" cols="50" class="new-mail-body" v-model="newMail.body"></textarea>
                 <button class="send-btn">Send</button>
             </form>

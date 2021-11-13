@@ -10,7 +10,7 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: true,
-        sentAt: getDate(1621234930594),
+        sentAt: getDate(1622234930594),
         to: 'yaronB@ca.com',
         isStar: true,
         isSent: false,
@@ -22,10 +22,10 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1621133930594),
+        sentAt: getDate(1620234930594),
         to: 'matanB@ca.com',
         isStar: false,
-        isSent: true,
+        isSent: false,
         isDraft: false
     },
     {
@@ -34,11 +34,11 @@ const gMails = [
         subject: 'Sprint3 update',
         body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1618234930594),
         to: 'adinaZ@ca.com',
         isStar: false,
-        isSent: false,
-        isDraft: true
+        isSent: true,
+        isDraft: false
     },
     {
         id: 'e104',
@@ -46,7 +46,7 @@ const gMails = [
         subject: 'Data is a function that ',
         body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1616234930594),
         to: 'oriSH@ca.com',
         isSent: false,
         isStar: false,
@@ -58,10 +58,10 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: false,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1614234930594),
         to: 'yaronB@ca.com',
         isSent: false,
-        isStar: false,
+        isStar: true,
         isDraft: false
     },
     {
@@ -70,7 +70,7 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1612234930594),
         to: 'matanB@ca.com',
         isSent: false,
         isStar: false,
@@ -82,10 +82,10 @@ const gMails = [
         subject: 'Sprint3 update',
         body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: getDate(1551133930594),
+        sentAt: getDate(1610234930594),
         to: 'adinaZ@ca.com',
-        isSent: false,
-        isStar: false,
+        isSent: true,
+        isStar: true,
         isDraft: false
     },
     {
@@ -94,10 +94,10 @@ const gMails = [
         subject: 'Data is a function that ',
         body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: getDate(1551133930594),
+        sentAt: getDate(1604133930594),
         to: 'oriSH@ca.com',
         isSent: false,
-        isStar: false,
+        isStar: true,
         isDraft: false
     },
     {
@@ -106,10 +106,10 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: false,
-        sentAt: getDate(1621234930594),
+        sentAt: getDate(1598133930594),
         to: 'yaronB@ca.com',
-        isSent: false,
-        isStar: false,
+        isSent: true,
+        isStar: true,
         isDraft: false
     },
     {
@@ -118,7 +118,7 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1621133930594),
+        sentAt: getDate(1594133930594),
         to: 'matanB@ca.com',
         isSent: false,
         isStar: false,
@@ -130,7 +130,7 @@ const gMails = [
         subject: 'Sprint3 update',
         body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1589133930594),
         to: 'adinaZ@ca.com',
         isSent: false,
         isStar: false,
@@ -142,10 +142,10 @@ const gMails = [
         subject: 'Data is a function that ',
         body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1579133930594),
         to: 'oriSH@ca.com',
         isSent: false,
-        isStar: false,
+        isStar: true,
         isDraft: false
     },
     {
@@ -154,7 +154,7 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: false,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1569133930594),
         to: 'yaronB@ca.com',
         isSent: false,
         isStar: false,
@@ -166,7 +166,7 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1559133930594),
         to: 'matanB@ca.com',
         isSent: false,
         isStar: false,
@@ -178,7 +178,7 @@ const gMails = [
         subject: 'Sprint3 update',
         body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: getDate(1551133930594),
+        sentAt: getDate(1556133930594),
         to: 'adinaZ@ca.com',
         isSent: false,
         isStar: false,
@@ -190,7 +190,7 @@ const gMails = [
         subject: 'Data is a function that ',
         body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: getDate(1551133930594),
+        sentAt: getDate(1553133930594),
         to: 'oriSH@ca.com',
         isSent: false,
         isStar: false,
@@ -202,10 +202,10 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: true,
-        sentAt: getDate(1621234930594),
+        sentAt: getDate(1553133930594),
         to: 'yaronB@ca.com',
         isSent: false,
-        isStar: false,
+        isStar: true,
         isDraft: false
     },
     {
@@ -214,7 +214,7 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1621133930594),
+        sentAt: getDate(1553133930594),
         to: 'matanB@ca.com',
         isSent: false,
         isStar: false,
@@ -226,7 +226,7 @@ const gMails = [
         subject: 'Sprint3 update',
         body: "Hi Revital and Yaniv, Please don't forget at 21:00 today a zoom meating and Lorem ipsum, dolor sit amet consectetur adipisicing elit.Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius.",
         isRead: false,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1551133930594),
         to: 'adinaZ@ca.com',
         isSent: false,
         isStar: false,
@@ -238,7 +238,7 @@ const gMails = [
         subject: 'Data is a function that ',
         body: 'Hi Did you know that Data is a function that return an object ? or that Data is a function that return an object ? and also that Data is a function that return an object ?',
         isRead: true,
-        sentAt: getDate(1581133930594),
+        sentAt: getDate(1551133930594),
         to: 'oriSH@ca.com',
         isSent: false,
         isStar: false,
@@ -250,7 +250,7 @@ const gMails = [
         subject: 'Sprint3 review',
         body: 'Hi Revital and Yaniv, i have been review your sprint 3 and i hope that Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ',
         isRead: false,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1551133930594),
         to: 'yaronB@ca.com',
         isSent: false,
         isStar: false,
@@ -262,7 +262,7 @@ const gMails = [
         subject: 'Dropbox!!!',
         body: "Hi, don't forget DO NOT COPY YOUR GIT FOLDER TO THE DROPBOX Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quod, id fugit quibusdam doloremque maiores harum tempora ipsam consectetur eos nobis quos totam corrupti laborum eligendi! Voluptate praesentium iste eius. ",
         isRead: true,
-        sentAt: getDate(1561133930594),
+        sentAt: getDate(1551133930594),
         to: 'matanB@ca.com',
         isSent: false,
         isStar: false,
@@ -305,6 +305,7 @@ export const mailService = {
     getEmptyMail,
     getById,
     read,
+    star,
     unReadToRead,
     classObject,
 };
@@ -331,6 +332,11 @@ function read(mail) {
     return storageService.put(MAILS_KEY, mail);
 }
 
+function star(mail) {
+    mail.isStar = !mail.isStar;
+    return storageService.put(MAILS_KEY, mail);
+}
+
 function unReadToRead(mail) {
     if (!mail.isRead) mail.isRead = true;
     return storageService.put(MAILS_KEY, mail);
@@ -344,6 +350,9 @@ function getEmptyMail() {
         isRead: false,
         name: 'Yaniv Richman',
         sentAt: getCurentDate(),
+        isStar: false,
+        isSent: true,
+        isDraft: false
     };
 }
 
