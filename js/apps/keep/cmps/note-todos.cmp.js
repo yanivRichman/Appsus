@@ -1,13 +1,21 @@
 
 
 export default {
-    props: ['info'],
+    props: ['info', 'note'],
     template: ` 
         <section class="note">
             <h3>{{ info.title }}</h3>
             <ul class="todos">
-                <li v-for="todo in info.todos">{{ todo.txt }}</li>
+                <li v-for="todo in info.todos" :class="{done: todo.isDone}" @click="markLine(todo, note.id)">{{ todo.txt }}</li>
             </ul>
         </section>
         `,
+
+    methods: {
+        markLine(todo, noteId) {
+            this.$emit('markLine', todo, noteId)
+        }
+    },
+
 }
+

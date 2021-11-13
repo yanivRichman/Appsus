@@ -5,7 +5,7 @@ import { noteService } from '../services/note-service.js'
 
 
 export default {
-    props: ['notes',],
+    props: ['notes','pinnedNots'],
     components: {
         notePreview,
         editNote,
@@ -13,28 +13,57 @@ export default {
 
     template: `
     <section class="note-list ">
-        <div class="note-list-container">
+    <div class="pinned-container">
+        <div v-for="note in pinnedNots" :key="note.id">
+            <div class="notes-preview-container" :style="{backgroundColor:note.style.bgc}">
+                <div class="icon pin big"  @click="pinNote(note.id)" ></div>
+                 <note-preview :note="note" @load="load"/>  
+                <div class="note-footer flex space-around"> 
+                    <div class="icon pin"  @click="pinNote(note.id)" ></div>
+                    
+                    <div class="icon palette" @click="openColors(note.id)"></div>
+                    
+                    
+                    <div class="icon edit" @click="openEditor(note.id,note.info.title)"></div>
+                    <form v-if="idEdit === note.id && isContantEdit" @submit.prevent="updateTitle">
+                        <input  v-model="titleToEdit" type="text" >
+                    </form>
+                    
+                    <div class="icon duplicate" @click="duplicateNote(note)"></div> 
+                    <div class="icon trash" @click="remove(note.id)"></div>
+                </div>
+                <div v-if="idEdit === note.id && isColorEdit" class="colors-container">
+                        <div class="colorsPalette" v-for="color in colors">
+                              <button class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></button>
+                        </div>
+                </div>
+         </div>         
+        </div>
+        </div>
+
+        <h1>Other Notes</h1>
+        <div class="note-list-container flex space-around">
         <div v-for="note in notes" :key="note.id">
             
             <div class="notes-preview-container" :style="{backgroundColor:note.style.bgc}">
-                 <note-preview :note="note"/>  
+                 <note-preview :note="note" @load="load"/>  
                 <div class="note-footer flex space-around"> 
-                     <div class="icon trash" @click="remove(note.id)"></div>
-                
-                     <div class="icon palette" @click="openColors(note.id)"></div>
-                     
-                    <div class="icon pin" ></div>
-                   
+                    <div class="icon pin" @click="pinNote(note.id)"></div>
+                    
+                    <div class="icon palette" @click="openColors(note.id)"></div>
+                    
+                    
                     <div class="icon edit" @click="openEditor(note.id,note.info.title)"></div>
-                        <form v-if="idEdit === note.id && isContantEdit" @submit.prevent="updateTitle">
-                           <input  v-model="titleToEdit" type="text" >
-                        </form>
-                   
-                        <div class="icon duplicate" @click="duplicateNote(note)"></div> 
+                    <form v-if="idEdit === note.id && isContantEdit" @submit.prevent="updateTitle">
+                        <input  v-model="titleToEdit" type="text" >
+                    </form>
+                    
+                    <div class="icon duplicate" @click="duplicateNote(note)"></div> 
+                    <div class="icon trash" @click="remove(note.id)"></div>
                 </div>
-                <div v-if="idEdit === note.id && isColorEdit" class="platte-container flex space-between">
+                <div v-if="idEdit === note.id && isColorEdit" class="colors-container">
                         <div class="colorsPalette" v-for="color in colors">
-                              <div class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></div>
+                              <button class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></button>
                         </div>
                 </div>
          </div>         
@@ -55,6 +84,10 @@ export default {
     },
 
     methods: {
+        load(){
+            this.$emit('load')
+        },
+        
         remove(noteId) {
             this.$emit('remove', noteId)
         },
@@ -75,6 +108,10 @@ export default {
             this.isContantEdit = !this.isContantEdit;
             this.isColorEdit = false;
             this.titleToEdit = txt
+        },
+
+        pinNote(id){
+            this.$emit('pinNote',id)
         },
 
         updateTitle() {

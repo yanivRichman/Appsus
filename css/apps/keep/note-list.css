@@ -1,7 +1,35 @@
 
+.note-list-container {
+    /* width: 1200px; */
+    /* margin: 0 auto; */
+    /* display: flex; */
+    /* display: block;
+    margin: 0 auto 2em;
+	column-gap: 1.5em;
+    column-count: 4; */
+
+ 
+
+}
+
 .icon {
     cursor: pointer;
 }
+
+.done {
+    text-decoration: line-through;
+}
+
+.colors-container {
+    position: absolute;
+    width: 350px;
+}
+
+.colorsPalette {
+    display: inline-block;
+    margin: 0;
+}
+
 
 /* BTNS */
 
@@ -10,4 +38,6 @@
     height: 25px;
     border-radius: 50%;
     border: 1px solid rgb(197, 192, 192);
+    margin-left: 0px;
 }
+

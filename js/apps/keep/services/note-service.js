@@ -12,6 +12,8 @@ export const noteService = {
     save,
     duplicateNote,
     pinedQuery,
+    markTodoline,
+    pinNote,
 }
 
 
@@ -22,6 +24,18 @@ function query() {
     // return notes;
     return storageService.query(NOTES_KEY);
 
+}
+
+function markTodoline(todoLine,id) {
+    return getNoteById(id) 
+    .then(note =>{
+       const todos= note.info.todos
+      var todo = todos.find(todo=>(todo.txt=== todoLine.txt))
+        todo.doneAt = Date.now;
+        todo.isDone = !todo.isDone;
+        return save(note);
+    })
+    
 }
 
 function pinedQuery() {
@@ -51,6 +65,14 @@ function duplicateNote(newNote) {
     return save(newNote);
 }
 
+function pinNote(noteId) {
+    return getNoteById(noteId)
+    .then(note => {
+        note.isPinned = !note.isPinned
+        return save(note)
+    })
+}
+
 function updateTitle(noteId,title) {
     return getNoteById(noteId)
     .then(note => {
@@ -67,6 +89,7 @@ function updateNoteBgc(color, noteId) {
         return save(note)
     })
 }
+
 
 function save(note) {
     if (note.id) return storageService.put(NOTES_KEY, note);
@@ -159,8 +182,8 @@ function _createNotes() {
                     label: "Get my stuff together",
                     title: "Get my stuff together",
                     todos: [
-                        { txt: "Driving liscence", doneAt: null },
-                        { txt: "Coding power", doneAt: 187111111 }
+                        { txt: "Driving liscence", doneAt: null ,isDone: false},
+                        { txt: "Coding power", doneAt: 187111111 ,isDone: true }
                     ]
                 },
                 style: {

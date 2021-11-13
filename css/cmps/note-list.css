@@ -1,19 +1,32 @@
 
 
+.icon {
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+
 
 .note-list-container{
-    display: grid;
+    /* display: grid;
     margin: 0 auto 2em;
     /* grid-template-columns: repeat(4, 100px) */
-    grid-auto-flow: dense;
+    /* grid-auto-flow: dense; */
 
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));  */
 }
+
+
+
 
 /* BTNS */
 
 .btnColor {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
+    border: 1px solid rgb(197, 192, 192);
 }

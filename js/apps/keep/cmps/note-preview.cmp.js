@@ -1,3 +1,4 @@
+import { noteService } from '../services/note-service.js'
 import noteTxt from './note-txt.cmp.js'
 import noteTodos from './note-todos.cmp.js'
 import noteImg from './note-img.cmp.js'
@@ -14,7 +15,15 @@ export default {
     },
     template: `
     <div class="note-preview flex space-around column">
-        <components :is="note.type" :info="note.info"/>
+        <components :is="note.type" :info="note.info" :note="note" @markLine="markLine"/>
     </div>
     `,
+
+methods: {
+        markLine(todoTxt,id){
+            noteService.markTodoline(todoTxt, id)
+            .then(this.$emit('load')
+            )
+        }
+    }
 }

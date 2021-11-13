@@ -2,7 +2,6 @@ import { noteService } from '../services/note-service.js'
 import noteList from '../cmps/note-list.cmp.js'
 import addNote from '../cmps/add-note.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
-import pinnedNote from '../cmps/pinned-note.cmp.js'
 
 
 
@@ -16,12 +15,11 @@ export default {
 
     template: `
     <section v-if="notes" class="home-page" >
-         <h3>Keep</h3>
          <note-filter @filtered="setFilter"/>
          <add-note :noteEdit="noteEdit" @updateType="updateType" @submit="updatePage"/>
          <!-- <h3>{{noteEdit.cmpType}}</h3> -->
 
-         <note-list v-model="notes" :notes="notesToShow" @remove="removeNote" @updateBgc="updateNoteBgc" @submit="updatePage" @duplicate="duplicateNote"/>
+         <note-list v-model="notes" :notes="notesToShow" :pinnedNots="pinnedNots" @remove="removeNote" @updateBgc="updateNoteBgc" @submit="updatePage" @duplicate="duplicateNote" @pinNote="pinNote"  @markLine="markLine" @load="load"/>
          
     </section>
     `,
@@ -29,6 +27,7 @@ export default {
     data() {
         return {
             notes: null,
+            pinnedNots: null,
             noteEdit: {
                 type: 'text',
                 placeholder: `What's on your mind...`,
@@ -41,9 +40,17 @@ export default {
 
     created() {
         this.loadNotes();
+        this.loadPinNotes();
     },
 
     methods: {
+
+        markLine(todoTxt, id) {
+            noteService.markTodoline(todoTxt, id);
+            this.loadNotes();
+            this.loadPinNotes();
+        },
+
         setFilter(filterBy) {
             this.filterBy = filterBy
         },
@@ -52,6 +59,17 @@ export default {
             noteService.query()
                 .then(notes => this.notes = notes);
         },
+
+        loadPinNotes() {
+            noteService.pinedQuery()
+                .then(notes => this.pinnedNots = notes);
+        },
+
+        load(){
+            this.loadNotes();
+            this.loadPinNotes();
+        },
+
 
         removeNote(id) {
             noteService.removeNote(id)
@@ -65,12 +83,25 @@ export default {
 
         updatePage() {
             this.loadNotes();
+            this.loadPinNotes();
+
         },
 
         updateNoteBgc(color, noteId) {
             noteService.updateNoteBgc(color, noteId)
                 .then(() => {
                     this.loadNotes();
+                    this.loadPinNotes();
+
+                })
+        },
+
+        pinNote(noteId) {
+            noteService.pinNote(noteId)
+                .then(() => {
+                    this.loadNotes();
+                    this.loadPinNotes();
+
                 })
         },
 
@@ -78,6 +109,8 @@ export default {
             noteService.duplicateNote(newNote)
                 .then(() => {
                     this.loadNotes();
+                    this.loadPinNotes();
+
                 })
         },
 
@@ -115,7 +148,7 @@ export default {
             const selectedType = this.filterBy.select;
             if (selectedType === 'all') return this.notes;
             const filteredNotes = this.notes.filter(note => {
-                return note.type === selectedType
+                return (note.type === selectedType && !note.isPinned)
             })
             return filteredNotes
         }
