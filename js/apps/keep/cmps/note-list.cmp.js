@@ -12,7 +12,8 @@ export default {
     },
 
     template: `
-    <section class="note-list flex space-between">
+    <section class="note-list ">
+        <div class="note-list-container">
         <div v-for="note in notes" :key="note.id">
             
             <div class="notes-preview-container" :style="{backgroundColor:note.style.bgc}">
@@ -21,11 +22,7 @@ export default {
                      <div class="icon trash" @click="remove(note.id)"></div>
                 
                      <div class="icon palette" @click="openColors(note.id)"></div>
-                     <div v-if="idEdit === note.id && isColorEdit" class="platte-container flex space-between">
-                        <div class="colorsPalette" v-for="color in colors">
-                              <div class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></div>
-                        </div>
-                    </div>
+                     
                     <div class="icon pin" ></div>
                    
                     <div class="icon edit" @click="openEditor(note.id,note.info.title)"></div>
@@ -35,9 +32,13 @@ export default {
                    
                         <div class="icon duplicate" @click="duplicateNote(note)"></div> 
                 </div>
+                <div v-if="idEdit === note.id && isColorEdit" class="platte-container flex space-between">
+                        <div class="colorsPalette" v-for="color in colors">
+                              <div class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></div>
+                        </div>
+                </div>
+         </div>         
         </div>
-
-                     
         </div>
     </section>
     `,
@@ -65,24 +66,24 @@ export default {
 
         openColors(id) {
             this.idEdit = id;
-            this.isColorEdit = true;
+            this.isColorEdit = !this.isColorEdit;
             this.isContantEdit = false;
         },
 
         openEditor(id, txt) {
             this.idEdit = id;
-            this.isContantEdit = true;
+            this.isContantEdit = !this.isContantEdit;
             this.isColorEdit = false;
             this.titleToEdit = txt
         },
 
         updateTitle() {
             noteService.updateTitle(this.idEdit, this.titleToEdit)
-            .then(() => {
-                this.$emit('submit')
-                this.titleToEdit = ''
-            })
-            this.isContantEdit= false
+                .then(() => {
+                    this.$emit('submit')
+                    this.titleToEdit = ''
+                })
+            this.isContantEdit = false
         },
 
         duplicateNote(note) {

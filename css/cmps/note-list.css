@@ -1,0 +1,19 @@
+
+
+
+.note-list-container{
+    display: grid;
+    margin: 0 auto 2em;
+    /* grid-template-columns: repeat(4, 100px) */
+    grid-auto-flow: dense;
+
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* BTNS */
+
+.btnColor {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
