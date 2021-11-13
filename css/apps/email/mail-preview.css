@@ -9,8 +9,6 @@
 }
 
 .mail-preview {
-    border-bottom: 1px dotted gray;
-    background-color: rgba(255, 255, 255, 0.719);
     text-align: start;
 }
 
@@ -32,8 +30,10 @@
 }
 
 .subject-body {
-    width: 950px;
+    width: 1000px;
     cursor: pointer;
+    font-size: 18px;
+
 }
 
 .mail-body {
@@ -43,15 +43,20 @@
 .mail-name {
     width: 130px;
     padding: 10px;
+    font-size: 18px;
 }
 
 .mail-sentAt {
     width: 90px;
     padding: 10px;
+    font-size: 18px;
 }
 
 .new-mail {
-    padding: 5px;
+    width: 900px;
+    padding-left: 500px;
+    padding-right: 500px;
+
 }
 
 .new-mail-body {
@@ -98,7 +103,12 @@ button {
 
 .right-icons {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 25px;
+    margin-right: 10px;
+
+}
+.draft {
+    cursor: not-allowed !important;
 }
 
 .email-menu {
@@ -154,3 +164,14 @@ button {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+.star-gold{
+    color: gold;
+}
+
+.mail-preview-container {
+    border-bottom: 1px dotted gray;
+    background-color: rgba(255, 255, 255, 0.719);
+}
+
+
