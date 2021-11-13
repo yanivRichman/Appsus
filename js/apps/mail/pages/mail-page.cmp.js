@@ -13,7 +13,7 @@ export default {
             <button @click="setFilter({select:'isInbox',str:''})" class="email-menu inbox-icon"> Inbox</button>
             <button @click="setFilter({select:'isStar',str:''})" class="email-menu star-icon"> starred</button>
             <button @click="setFilter({select:'isSent',str:''})" class="email-menu sent-mail"> Sent Mail</button>
-            <button @click="setFilter({select:'isDraft',str:''})" class="email-menu drafts-icon draft"> Drafts</button>
+            <button class="email-menu drafts-icon draft"> Drafts</button>
         </div>
        <mail-list class="mail-list" :mails="mailsToShow" @remove="removeMail"/>
 </div>
