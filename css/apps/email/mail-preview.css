@@ -30,9 +30,9 @@
 }
 
 .subject-body {
-    width: 1000px;
+    width: 900px;
     cursor: pointer;
-    font-size: 18px;
+    /* font-size: 18px; */
 
 }
 
@@ -43,7 +43,7 @@
 .mail-name {
     width: 130px;
     padding: 10px;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .mail-sentAt {
