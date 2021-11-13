@@ -87,6 +87,7 @@
     transition: all 0.4s;
     height: 30px;
     text-decoration: none;
+    width: 120px;
 }
 
 button {
