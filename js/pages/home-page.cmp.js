@@ -7,13 +7,14 @@ export default {
        <div class="">
              <p class="home-txt"> Meet your new Email inbox. <br> decide which emails you want to read and when. </p>
         
-           <img class="email-img" src="./img/email.png"/>
+           <img class="email-img" src="/img/email.png"/>
        </div>
        <div>
             <p class="home-txt"> Capture what’s on your mind.<br> Add notes, lists, photos, and video to Keep.</p>
-           <img src="./img/notes.png"/>
+           <img src="/img/notes.png"/>
         </div>
        </div>
    </section>
 `,
 }
+
