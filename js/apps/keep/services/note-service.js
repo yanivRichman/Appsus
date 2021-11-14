@@ -148,18 +148,7 @@ function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY);
     if (!notes || !notes.length) {
         notes = [
-            {
-                id: "n101",
-                type: "note-txt",
-                isPinned: true,
-                isEdit: false,
-                info: {
-                    txt: "Fullstack Me Baby!"
-                },
-                style: {
-                    bgc: "#b7e4c7"
-                }
-            },
+           
             {
                 id: "n102",
                 type: "note-img",
@@ -174,7 +163,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "n103",
+                id: "n109",
                 type: "note-todos",
                 isPinned: false,
                 isEdit: false,
@@ -203,6 +192,88 @@ function _createNotes() {
                     bgc: "#ffd6a5"
                 }
             },
+            {
+                id: "n105",
+                type: "note-video",
+                isPinned: false,
+                isEdit: false,
+                info: {
+                    title: "cute vid",
+                    url: "https://www.youtube.com/embed/h6PVe1YBQh4",
+                },
+                style: {
+                    bgc: "a0c4ff"
+                }
+            },
+            {
+                id: "n106",
+                type: "note-img",
+                isPinned: false,
+                isEdit: false,
+                info: {
+                    url: "https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif",
+                    title: "Great gif"
+                },
+                style: {
+                    bgc: "#ffadad"
+                }
+            },
+            {
+                id: "n107",
+                type: "note-txt",
+                isPinned: false,
+                isEdit: false,
+                info: {
+                    txt: "last time I slept? new Date('July 05, 2020').getTime()"
+                },
+                style: {
+                    bgc: "#9bf6ff"
+                }
+            },
+            {
+                id: "n108",
+                type: "note-img",
+                isPinned: false,
+                isEdit: false,
+                info: {
+                    url: "https://memegenerator.net/img/instances/54494224/what-if-full-stack-developer-just-means-do-everything-including-fixing-the-floor-printer.jpg",
+                    title: "meme"
+                },
+                style: {
+                    bgc: "#fff"
+                }
+            },
+            {
+                id: "n101",
+                type: "note-txt",
+                isPinned: false,
+                isEdit: false,
+                info: {
+                    txt: "Fullstack Me Baby!"
+                },
+                style: {
+                    bgc: "#b7e4c7"
+                }
+            },
+            {
+                id: "n103",
+                type: "note-todos",
+                isPinned: true,
+                isEdit: false,
+                info: {
+                    label: "TO DO LIST",
+                    title: "TO DO LIST",
+                    todos: [
+                        { txt: "make lists", doneAt: null ,isDone: false},
+                        { txt: "look at lists", doneAt: 187111111 ,isDone: false },
+                        { txt: "PANIC!", doneAt: 187111111 ,isDone: false }
+                    ]
+                },
+                style: {
+                    bgc: "#ffd6a5"
+                }
+            },
+            
         ];
         utilService.saveToStorage(NOTES_KEY, notes);
     }

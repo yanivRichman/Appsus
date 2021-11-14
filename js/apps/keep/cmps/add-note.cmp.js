@@ -5,11 +5,11 @@ export default {
     props: ['noteEdit'],
     template: `
     <section class="add-note">
-        <div>
+        <div class="add-note-warp flex align-center">
             <form @submit.prevent="saveNote">
             <input v-model="noteToEdit" :type="noteEdit.type" autocomplete="off" :placeholder="noteEdit.placeholder">
             </form>
-            <div>   
+            <div class="addw-btns">   
                 <span class="icon txt" @click="updateNoteAdd('txt')"></span>
                 <span class="icon vid" @click="updateNoteAdd('img')"></span>
                 <span class="icon img" @click="updateNoteAdd('vid')"></span>

@@ -41,9 +41,9 @@ export default {
         </div>
         </div>
 
-        <h1>Other Notes</h1>
-        <div class="note-list-container flex space-around">
-        <div v-for="note in notes" :key="note.id">
+        <!-- flex space-between -->
+        <div class="note-list-container ">
+        <div v-for="note in notes" :key="note.id" class="note">
             
             <div class="notes-preview-container" :style="{backgroundColor:note.style.bgc}">
                  <note-preview :note="note" @load="load"/>  
@@ -54,20 +54,20 @@ export default {
                     
                     
                     <div class="icon edit" @click="openEditor(note.id,note.info.title)"></div>
-                    <form v-if="idEdit === note.id && isContantEdit" @submit.prevent="updateTitle">
-                        <input  v-model="titleToEdit" type="text" >
-                    </form>
                     
                     <div class="icon duplicate" @click="duplicateNote(note)"></div> 
                     <div class="icon trash" @click="remove(note.id)"></div>
                 </div>
                 <div v-if="idEdit === note.id && isColorEdit" class="colors-container">
-                        <div class="colorsPalette" v-for="color in colors">
-                              <button class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></button>
-                        </div>
+                    <div class="colorsPalette" v-for="color in colors">
+                        <button class="icon btnColor" @click="updateBgc(color,note.id)" :style="{backgroundColor:color}"></button>
+                    </div>
                 </div>
+                <form v-if="idEdit === note.id && isContantEdit" @submit.prevent="updateTitle" class="title-input">
+                    <input  v-model="titleToEdit" type="text" >
+                </form>
          </div>         
-        </div>
+</div>
         </div>
     </section>
     `,

@@ -2,7 +2,7 @@
 export default {
     template: `
         <section class="note-filter">
-            <div class="search">
+            <div class="search flex space-between">
                 <form @submit.prevent="filter">  
                    <input v-model.lasy="filterBy.searchTerm"  type="search" id="noteSearch" name="noteSearch" placeholder="Search" autocomplete="off"> 
                 </form>
