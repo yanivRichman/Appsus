@@ -3,6 +3,22 @@
     flex-direction: column;
 }
 
+.search-icon {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%),
+        0 1px 3px 1px rgb(60 64 67 / 15%);
+    background: white;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: 0;
+    color: #5f6368;
+    margin: 20px;
+    transition: all 0.4s;
+    height: 50px;
+    text-decoration: none;
+    width: 180px; 
+}
+
 .New-Message {
     background-color: black;
     color: white;
@@ -53,9 +69,8 @@
 }
 
 .new-mail {
-    width: 900px;
-    padding-left: 500px;
-    padding-right: 500px;
+    padding-left: 500px; 
+    padding-right: 500px; 
 
 }
 
@@ -90,9 +105,9 @@
     cursor: pointer;
     margin: 20px;
     transition: all 0.4s;
-    height: 30px;
+    height: 50px;
     text-decoration: none;
-    width: 120px;
+    width: 180px;
 }
 
 button {

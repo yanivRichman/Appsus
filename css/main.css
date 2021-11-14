@@ -25,9 +25,7 @@ body {
 
 .active-link {
     color: blueviolet;
-    text-decoration: none;
-
-    
+    text-decoration: none;  
 }
 
 .app-header {
@@ -45,6 +43,22 @@ a {
 .email-img {
     width: 500px
 }
-.main-layout {
 
+.logo {
+    text-transform: uppercase;
+    font-family: aquire;
+    font-size: 2rem;
+    color: black;
+}
+
+.nav-bar{
+    font-size: 1.5rem;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+.home-txt {
+    font-size: 1.3rem;
 }

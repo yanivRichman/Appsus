@@ -13,6 +13,11 @@
   font-family: "fa";
   src: url(../../fonts/fa/fa-brands-400.ttf);
 }
+
+@font-face {
+  font-family: aquire;
+  src: url(../../fonts/fa/AquireBold-8Ma60.otf);
+}
  
 .icon {
     font-family: fa;
